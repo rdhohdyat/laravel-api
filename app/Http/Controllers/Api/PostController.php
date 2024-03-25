@@ -41,7 +41,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             'title' => 'required',
             'content' => 'required',
         ]);
@@ -133,7 +133,6 @@ class PostController extends Controller
         //return response
         return new PostResource(true, 'Data Post Berhasil Diubah!', $post);
     }
-
 
 
     /**
